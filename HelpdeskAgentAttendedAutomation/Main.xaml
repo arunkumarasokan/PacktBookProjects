@@ -75,6 +75,7 @@
                     <Variable x:TypeArguments="x:String" Name="strContactName" />
                     <Variable x:TypeArguments="x:String" Name="strEmail" />
                     <Variable x:TypeArguments="x:String" Name="strSubject" />
+                    <Variable x:TypeArguments="x:Boolean" Name="boolTickerCreated" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -93,13 +94,37 @@
                   <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="848,58.6666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[strContactName + strEmail + strSubject]" />
                   <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="848,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ZOHOAutomation.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="ContactName">[strContactName]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="Email">[strEmail]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="Subject">[strSubject]</InArgument>
-                      <OutArgument x:TypeArguments="x:Boolean" x:Key="Successful">[boolFileExists]</OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="ContactName">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strContactName">
+                          <mva:VisualBasicValue.Result>
+                            <OutArgument x:TypeArguments="x:String" />
+                          </mva:VisualBasicValue.Result>
+                        </mva:VisualBasicValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="Email">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strEmail">
+                          <mva:VisualBasicValue.Result>
+                            <OutArgument x:TypeArguments="x:String" />
+                          </mva:VisualBasicValue.Result>
+                        </mva:VisualBasicValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="Subject">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strSubject">
+                          <mva:VisualBasicValue.Result>
+                            <OutArgument x:TypeArguments="x:String" />
+                          </mva:VisualBasicValue.Result>
+                        </mva:VisualBasicValue>
+                      </InArgument>
+                      <OutArgument x:TypeArguments="x:Boolean" x:Key="Successful">
+                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="boolTickerCreated">
+                          <mva:VisualBasicReference.Result>
+                            <OutArgument x:TypeArguments="Location(x:Boolean)" />
+                          </mva:VisualBasicReference.Result>
+                        </mva:VisualBasicReference>
+                      </OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <If Condition="[boolFileExists]" sap:VirtualizedContainerService.HintSize="848,633.333333333333" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[boolTickerCreated]" sap:VirtualizedContainerService.HintSize="848,633.333333333333" sap2010:WorkflowViewState.IdRef="If_2">
                     <If.Then>
                       <Sequence sap:VirtualizedContainerService.HintSize="426,484" sap2010:WorkflowViewState.IdRef="Sequence_4">
                         <sap:WorkflowViewStateService.ViewState>
