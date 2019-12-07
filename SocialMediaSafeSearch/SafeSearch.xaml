@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>542.666666666667,719.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>542.666666666667,551.333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SafeSearch_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -101,13 +101,13 @@
                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,178" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="Output\ImageDetails.xlsx">
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="Output\ImageDetails.xlsx">
               <ui:ExcelApplicationScope.Body>
                 <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,237.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468.666666666667,598" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Int32" Default="2" Name="intCounter" />
                       <Variable x:TypeArguments="x:String" Name="strImagePath" />
@@ -116,72 +116,98 @@
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExcelReadRange AddHeaders="True" DataTable="[dtImageDetails]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+                    <ui:ExcelReadRange AddHeaders="True" DataTable="[dtImageDetails]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="426.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
                       <ui:ExcelReadRange.Range>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" Value="" />
                         </InArgument>
                       </ui:ExcelReadRange.Range>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </ui:ExcelReadRange>
-                    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtImageDetails]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtImageDetails]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="426.666666666667,407.333333333333" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                       <ui:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,1169.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,258.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:ExcelReadCell Cell="[&quot;A&quot;+intCounter.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="434,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="Sheet1">
+                            <ui:ExcelReadCell Cell="[&quot;A&quot;+intCounter.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="Sheet1">
                               <ui:ExcelReadCell.Result>
                                 <OutArgument x:TypeArguments="x:String">[strImagePath]</OutArgument>
                               </ui:ExcelReadCell.Result>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                             </ui:ExcelReadCell>
-                            <uga:GoogleVisionScope ApiKey="{x:Null}" KeyPath="{x:Null}" Password="{x:Null}" ServiceAccountEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="[ClientID]" CredentialSecret="[ClientSecret]" DisplayName="Google Vision Scope" sap:VirtualizedContainerService.HintSize="434,267.333333333333" sap2010:WorkflowViewState.IdRef="GoogleVisionScope_2" KeyType="json" Services="Vision">
-                              <uga:GoogleVisionScope.Body>
-                                <ActivityAction x:TypeArguments="ug:SimpleObjectContainer">
-                                  <ActivityAction.Argument>
-                                    <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GoogleVisionScope" />
-                                  </ActivityAction.Argument>
-                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,181.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <uga:SafeSearch ImageURL="{x:Null}" Adult="[strAdult]" DisplayName="Safe Search" sap:VirtualizedContainerService.HintSize="334,89.3333333333333" sap2010:WorkflowViewState.IdRef="SafeSearch_2" ImagePath="[strImagePath]" Medical="[strMedical]" Racy="[strRacy]" Violent="[strViolent]" />
-                                  </Sequence>
-                                </ActivityAction>
-                              </uga:GoogleVisionScope.Body>
-                            </uga:GoogleVisionScope>
-                            <ui:ExcelWriteCell Cell="[&quot;B&quot;+intCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[strAdult]" />
-                            <ui:ExcelWriteCell Cell="[&quot;C&quot;+intCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet1" Text="[strViolent]" />
-                            <ui:ExcelWriteCell Cell="[&quot;D&quot;+intCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Sheet1" Text="[strRacy]" />
-                            <ui:ExcelWriteCell Cell="[&quot;E&quot;+intCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="Sheet1" Text="[strMedical]" />
-                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[strAdult + strMedical +strRacy + strViolent]" />
-                            <Assign sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_2">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:Int32">[intCounter]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:Int32">[intCounter+1]</InArgument>
-                              </Assign.Value>
-                            </Assign>
+                            <Sequence DisplayName="Action Sequence" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uga:GoogleVisionScope ApiKey="{x:Null}" KeyPath="{x:Null}" Password="{x:Null}" ServiceAccountEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="[ClientID]" CredentialSecret="[ClientSecret]" DisplayName="Google Vision Scope" sap:VirtualizedContainerService.HintSize="262,52" sap2010:WorkflowViewState.IdRef="GoogleVisionScope_3" KeyType="json" Services="Vision">
+                                <uga:GoogleVisionScope.Body>
+                                  <ActivityAction x:TypeArguments="ug:SimpleObjectContainer">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GoogleVisionScope" />
+                                    </ActivityAction.Argument>
+                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="242,144.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uga:SafeSearch ImageURL="{x:Null}" Adult="[strAdult]" DisplayName="Safe Search" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="SafeSearch_3" ImagePath="[strImagePath]" Medical="[strMedical]" Racy="[strRacy]" Violent="[strViolent]" />
+                                    </Sequence>
+                                  </ActivityAction>
+                                </uga:GoogleVisionScope.Body>
+                              </uga:GoogleVisionScope>
+                              <ui:ExcelWriteCell Cell="[&quot;B&quot;+intCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="262,52" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="Sheet1" Text="[strAdult]" />
+                              <ui:ExcelWriteCell Cell="[&quot;C&quot;+intCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="262,52" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="Sheet1" Text="[strViolent]" />
+                              <ui:ExcelWriteCell Cell="[&quot;D&quot;+intCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="262,52" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="Sheet1" Text="[strRacy]" />
+                              <ui:ExcelWriteCell Cell="[&quot;E&quot;+intCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="262,52" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="Sheet1" Text="[strMedical]" />
+                              <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[intCounter]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[intCounter+1]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
                           </Sequence>
                         </ActivityAction>
                       </ui:ForEachRow.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
                     </ui:ForEachRow>
                   </Sequence>
                 </ActivityAction>
               </ui:ExcelApplicationScope.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -201,7 +227,13 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
               </ActivityAction.Argument>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="200,52.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Cannot Complete the Safe search results updated in the excel output file.&quot;]" />
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Cannot Complete the Safe search results updated in the excel output file.&quot;]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
             </ActivityAction>
           </Catch>
         </TryCatch.Catches>
